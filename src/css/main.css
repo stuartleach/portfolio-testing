@@ -1,0 +1,296 @@
+:root {
+
+
+  /* Dark Theme */
+  --dark-bg-color: rgb(29, 35, 88) ;
+  --dark-text-color: black;
+  --dark-prog-bar-color: #34366b;
+  --dark-prog-bar-value-color: white;
+  --dark-character-count-color: white;
+  --text-color: white;
+
+/* Light Theme */
+  /* --light-bg-color: #F3F9D2;
+  --light-text-color: #1F2041;
+  --light-prog-bar-color: blue;
+  --light-prog-bar-value-color: black;
+  --light-character-count-color: ; */
+}
+
+/* #theme-target {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  position: absolute;
+} */
+
+body {
+  /* background-color: var(--main-bg-color-dark); */
+  background-color: var(--dark-bg-color);
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+
+
+nav {
+  display: flex;
+  position: absolute;
+}
+
+
+
+a:hover {
+  text-decoration: none;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+#after-input {
+  width: 250px;
+  margin: 0 auto;
+}
+
+#characterCount {
+  /* color: #383831; */
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  margin-top: -45px;
+  z-index: 1000000;
+}
+
+.btn-group {
+  margin: 0 auto;
+  display: flex;
+}
+
+.btn .btn-default {
+  /* background-color: gray; */
+}
+
+.btn {
+  border-radius: 4px;
+}
+
+#done {
+  border: none;
+  margin-top: 20px;
+
+  /* width: 200px; */
+}
+
+#stats {
+  padding: 50px;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 2345;
+  border-radius: 10px;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+}
+
+#stats .btn-default {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 120px;
+  color: #191919;
+  background-color: #9c9ba1;
+  border: none;
+  border-radius: 5px;
+}
+
+#stats h5 {
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#stats .btn-default:hover {
+  background-color: "black";
+}
+
+#stats {
+  color: #191919;
+}
+
+#stats ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+#stats li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: -5px;
+}
+
+#timeElapsed {
+  float: right;
+}
+
+.container {
+  padding: 0;
+  width: 100%;
+}
+
+#wordCount {
+  color: #383831;
+  float: right;
+  text-align: right;
+  font-size: 12px;
+}
+
+#finalWordCount {
+  float: right;
+}
+
+#finalCharCount {
+  float: right;
+}
+
+#mostCommonWords {
+  font-size: 1.5em;
+  padding-top: 10px;
+}
+
+#prompt {
+  float: right;
+  text-align: right;
+  font-size: 12px;
+}
+
+.second-wrapper {
+  color: #fff;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  outline: none;
+  width: auto;
+  min-width: 100%;
+  font-size: 20px;
+  font-family: Roboto, Arial, sans-serif;
+  position: relative;
+}
+
+progress {
+  border: none;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: yellow !important;
+  /* height:  */
+}
+
+
+
+.input-wrapper {
+  width: 100%;
+  /* height: 150px; */
+  margin: 0 auto;
+  margin-bottom: 100px;
+  /* opacity: 0.5; */
+  /* border-style: none; */
+  /* border-width: 1px 0px 1px 0px; */
+  /* border-color: black; */
+  position: relative;
+}
+
+.vertical-center {
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}
+
+input {
+  color: #ddd;
+  border: none;
+  padding: 0;
+  padding-left: 150px;
+  padding-right: 150px;
+  border-radius: 0;
+  outline: none;
+  width: 80%;
+  /* min-width: 100%; */
+  /* width: 250px; */
+  font-size: 3.5rem;
+  /* background-color: blue; */
+  line-height: 3em;
+  font-family: Roboto, Arial, sans-serif;
+  background-color: transparent;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+input::placeholder {
+  /* font-size: 3.5rem; */
+  text-align: center;
+
+
+}
+
+
+
+a {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.1s ease;
+}
+
+a:hover {
+  color: #9b9b9b;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 2;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
