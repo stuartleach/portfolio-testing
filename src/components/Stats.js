@@ -4,6 +4,8 @@ class Stats extends Component {
 	state = { showing: false };
 
 	render() {
+		// const [show, setShow] = useState(false);
+		// const target = useRef(null);
 		const entry = this.props.state.entry;
 		const wordCount = this.props.state.wordCount;
 		const wordsLeft = this.props.state.wordsLeft;
@@ -21,25 +23,32 @@ class Stats extends Component {
 						className="btn"
 						onClick={() => this.setState({ showing: !showing })}
 					>
-						{showing ? 'Hide stats' : 'Show stats'}
+						{!showing ? 'Show stats' : null}
+						{showing ? (
+							<div className="statLines">
+								<p>
+									words remaining:
+									<span>{wordsLeft}</span>
+								</p>
+								<p>
+									word count:
+									<span>{wordCount}</span>
+								</p>
+								<p>
+									character count:
+									<span>{charCount}</span>
+								</p>
+								<p>
+									most popular words:
+									<span>
+										{wordsCounted.map((x) => (
+											<div>{x}</div>
+										))}
+									</span>
+								</p>
+							</div>
+						) : null}{' '}
 					</button>
-
-					{showing ? (
-						<ul>
-							<li className="stat">
-								words remaining: <br />
-								{wordsLeft}
-							</li>
-							<li className="stat">
-								word count: <br />
-								{wordCount}
-							</li>
-							<li className="stat">
-								character count: <br />
-								{charCount}
-							</li>
-						</ul>
-					) : null}
 				</div>
 			</div>
 		);

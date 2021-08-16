@@ -10,7 +10,6 @@ export default class Footer extends Component {
 			emailContact = this.props.emailContact,
 			linkedin = this.props.linkedin,
 			spotify = this.props.spotify;
-		console.log(this);
 
 		return (
 			<div className="Footer">

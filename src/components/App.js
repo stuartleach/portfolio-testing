@@ -19,7 +19,7 @@ class App extends React.Component {
 		charCount: 0,
 		charLimit: 10000,
 		wordLimit: 1000,
-		wordsCounted: '',
+		wordsCounted: [],
 		charLeft: this.charLimit,
 		wordsLeft: this.wordLimit,
 		github: 'https://github.com/stuartleach',
@@ -30,7 +30,7 @@ class App extends React.Component {
 	};
 
 	componentDidMount() {
-		this.ref = base.syncState(`${this.state.user}/entry`, {
+		/* this.ref = base.syncState(`${this.state.user}/entry`, {
 			context: this,
 			state: 'entry',
 			defaultValue: '',
@@ -60,26 +60,8 @@ class App extends React.Component {
 		this.ref = base.syncState(`${this.state.user}/wordsCounted`, {
 			context: this,
 			state: 'wordsCounted',
-		});
+		}); */
 	}
-
-	onEmailChange = (e) => {
-		this.setState({ email: e.target.value });
-	};
-	onPasswordChange = (e) => {
-		this.setState({ password: e.target.value });
-	};
-
-	handleSubmit = (e) => {
-		alert(
-			'Email: \n ' +
-				this.state.email +
-				'\n \npassword: \n' +
-				this.state.password
-		);
-		e.preventDefault();
-		// firebaseNewAccount();
-	};
 
 	keyPress = (e) => {
 		this.setState({
@@ -102,30 +84,47 @@ class App extends React.Component {
 			wordsLeft: this.state.wordLimit - this.state.wordCount,
 		});
 
-		const wordsCounted = {
-			...this.wordCounter,
-		};
-
 		// this.wordCounter();
 		this.setState({
-			wordsCounted: wordsCounted,
+			wordsCounted: this.wordCounter(),
 		});
+		// console.log(this.wordsCounted);
+		// console.log(JSON.stringify(this.wordCounter()));
 		document.title = this.state.wordsLeft
-			? this.state.wordsLeft + ' characters remain'
+			? this.state.wordsLeft + ' words remain'
 			: '';
 	};
 
 	wordCounter = () => {
-		const result = {};
+		let topWords = {};
+		let mostWords = {};
 		let wordArr = this.state.entry.split(' ');
+		const num = 5;
 		for (let i = 0; i < wordArr.length; i++) {
-			if (!result[wordArr[i]]) {
-				result[wordArr[i]] = 1;
+			if (!topWords[wordArr[i]]) {
+				topWords[wordArr[i]] = 1;
 			} else {
-				result[wordArr[i]] += 1;
+				topWords[wordArr[i]] += 1;
 			}
 		}
-		return result;
+
+		/* Object.keys(topWords).reduce((a, b) =>
+			topWords[a] > topWords[b] ? a : b
+		); */
+
+		Object.keys(topWords)
+			.sort((a, b) => topWords[b] - topWords[a])
+			.forEach((key, ind) => {
+				if (ind < num) {
+					mostWords[key] = topWords[key];
+				}
+			});
+
+		const topArr = [];
+		Object.keys(mostWords).map((x) => topArr.push(x));
+		return topArr;
+		// return arr;
+		// this.setState(this.wordsCounted, topWords);
 	};
 
 	render() {
@@ -139,6 +138,7 @@ class App extends React.Component {
 							keyPress={this.keyPress}
 							handleClick={this.handleClick}
 						/>
+
 						<Stats
 							state={
 								this.state
