@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 
 class ProgressBar extends Component {
 	render() {
+		const wordLimit = this.props.state.wordLimit;
+		const wordCount = this.props.state.wordCount;
 		return (
 			<progress
-				max={this.props.state.charLimit}
+				max={wordLimit}
 				id="progress"
-				value={this.props.state.entry.length}
-				// style={{ height: `${this.entry.length + 10}px` }}
+				value={wordCount}
 			></progress>
 		);
 	}

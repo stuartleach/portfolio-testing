@@ -11,6 +11,10 @@ body {
   color: #ddd;
 }
 
+h6 {
+  color: white;
+}
+
 progress {
   background-color: var(--dark-bg-color) !important;
   color: var(--dark-bg-color);
@@ -64,4 +68,9 @@ progress::-webkit-progress-value {
 #done {
   background-color: #2c2c2e;
   color: #404145;
+}
+
+.centered {
+  display: block;
+  margin: 0 auto;
 }
