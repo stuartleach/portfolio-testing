@@ -42,7 +42,7 @@ class Stats extends Component {
 									most popular words:
 									<span>
 										{wordsCounted.map((x) => (
-											<div>{x}</div>
+											<p className="popularWord">{x}</p>
 										))}
 									</span>
 								</p>
