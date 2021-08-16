@@ -2,9 +2,9 @@ import React from 'react';
 import Typewriter from './Typewriter';
 import ProgressBar from './ProgressBar';
 import Stats from './Stats';
-import base from '../base';
+/* import base from '../base';
 import CreateAccount from './CreateAccount';
-import firebaseApp from 'firebase';
+import firebaseApp from 'firebase'; */
 import Footer from './Footer';
 // import { firebaseNewAccount } from '../base';
 // import numToString from '../helper';
@@ -108,10 +108,6 @@ class App extends React.Component {
 			}
 		}
 
-		/* Object.keys(topWords).reduce((a, b) =>
-			topWords[a] > topWords[b] ? a : b
-		); */
-
 		Object.keys(topWords)
 			.sort((a, b) => topWords[b] - topWords[a])
 			.forEach((key, ind) => {
@@ -123,8 +119,6 @@ class App extends React.Component {
 		const topArr = [];
 		Object.keys(mostWords).map((x) => topArr.push(x));
 		return topArr;
-		// return arr;
-		// this.setState(this.wordsCounted, topWords);
 	};
 
 	render() {
