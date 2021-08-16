@@ -2,9 +2,10 @@ import React from 'react';
 import Typewriter from './Typewriter';
 import ProgressBar from './ProgressBar';
 import Stats from './Stats';
-import base from './base';
+import base from '../base';
 import CreateAccount from './CreateAccount';
 import firebaseApp from 'firebase';
+import Footer from './Footer';
 // import { firebaseNewAccount } from '../base';
 // import numToString from '../helper';
 
@@ -21,6 +22,11 @@ class App extends React.Component {
 		wordsCounted: '',
 		charLeft: this.charLimit,
 		wordsLeft: this.wordLimit,
+		github: 'https://github.com/stuartleach',
+		emailContact:
+			'mailto:jstuartleach@gmail.com?subject=Sent from stuartlea.ch',
+		linkedin: 'https://www.linkedin.com/in/stuart-leach-69182761/',
+		spotify: 'https://bit.ly/leachmusic',
 	};
 
 	componentDidMount() {
@@ -56,14 +62,6 @@ class App extends React.Component {
 			state: 'wordsCounted',
 		});
 	}
-
-	componentDidUpdate() {}
-
-	componentWillUnmount() {
-		// base.removeBinding(this.ref);
-	}
-
-	createAccount = () => {};
 
 	onEmailChange = (e) => {
 		this.setState({ email: e.target.value });
@@ -117,13 +115,6 @@ class App extends React.Component {
 			: '';
 	};
 
-	handleClick = (e) => {
-		const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-		// e.target.style = {
-		// 	'background-color': 'white',
-		// };
-	};
-
 	wordCounter = () => {
 		const result = {};
 		let wordArr = this.state.entry.split(' ');
@@ -134,9 +125,6 @@ class App extends React.Component {
 				result[wordArr[i]] += 1;
 			}
 		}
-		// this.setState({
-		// 	wordsCounted: result,
-		// });
 		return result;
 	};
 
@@ -144,23 +132,25 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<ProgressBar state={this.state} keyPress={this.keyPress} />
-				<CreateAccount
-					createAccount={this.createAccount}
-					onEmailChange={this.onEmailChange}
-					onPasswordChange={this.onPasswordChange}
-					handleSubmit={this.handleSubmit}
-					email={this.state.email}
-					password={this.state.password}
-				/>
-				<div className="vertical-center" onClick={this.handleClick}>
+				<div className="vertical-center">
 					<div className="input-wrapper container">
 						<Typewriter
 							state={this.state}
 							keyPress={this.keyPress}
 							handleClick={this.handleClick}
 						/>
-						<Stats state={this.state} />
+						<Stats
+							state={
+								this.state
+							} /*  showStats={this.showStats}  */
+						/>
 					</div>
+					<Footer
+						github={this.state.github}
+						emailContact={this.state.emailContact}
+						linkedin={this.state.linkedin}
+						spotify={this.state.spotify}
+					/>
 				</div>
 			</div>
 		);

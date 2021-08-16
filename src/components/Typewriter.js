@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import numToString from '../helper';
 import Login from './Login';
 import firebase from 'firebase';
-import { firebaseApp } from '../base';
+// import { firebaseApp } from '../base';
 
 class Typewriter extends Component {
 	/*
