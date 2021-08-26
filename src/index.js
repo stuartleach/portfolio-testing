@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/index.css';
-import App from './components/App';
-// import reportWebVitals from './reportWebVitals';
+// import './css/index.css';
+//import OneThousandWords from './components/OneThousandWords';
 
-import './css/App.css';
-import './css/darktheme.css';
-import './css/lighttheme.css';
-import './css/main.css';
-ReactDOM.render(
-	<App />,
+import Router from './components/Router';
+
+/* ReactDOM.render(
+	<OneThousandWords />,
 
 	document.getElementById('root')
+); */
+
+ReactDOM.render(
+	<Router />,
+
+	document.querySelector('#main')
 );
 
 // If you want to start measuring performance in your app, pass a function
